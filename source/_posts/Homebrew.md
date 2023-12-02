@@ -4,6 +4,8 @@ date: 2022-09-22 10:40:30
 updated: 2023-10-25 00:00:00
 categories: 实用工具
 tags: [Shell, Homebrew]
+index_img: /img/Homebrew.png
+banner_img: http://beekmanbeergarden.com/wp-content/uploads/2020/10/header_brewing-tips.jpg
 ---
 
 ## Homebrew 是什么？

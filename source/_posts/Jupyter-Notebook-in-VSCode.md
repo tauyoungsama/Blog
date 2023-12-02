@@ -4,6 +4,8 @@ date: 2023-01-30 22:48:40
 updated: 2023-06-17 19:48:20
 categories: 实用工具
 tags: [Python, Jupyter]
+index_img: /img/Jupyter.png
+banner_img: https://apod.nasa.gov/apod/image/2011/JupiterVista_JunoGill_3688.jpg
 ---
 
 ## Jupyter Notebook

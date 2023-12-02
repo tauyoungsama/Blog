@@ -4,6 +4,8 @@ date: 2023-03-15 10:30:00
 updated: 2023-03-15 10:33:00
 categories: 实用工具
 tags: macOS
+index_img: http://ww1.prweb.com/prfiles/2011/07/05/8620783/JPADS%202K%20FF%20in%20flight%201.JPG
+banner_img: https://bitcoinafrica.io/wp-content/uploads/2018/07/Supply_air_drop_outside_of_Forward_Operating_Base_Boris_110922-A-AR883-003.jpg
 ---
 
 ## 前期准备

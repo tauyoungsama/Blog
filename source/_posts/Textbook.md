@@ -3,6 +3,9 @@ title: 获取、加工和使用电子课本
 date: 2022-09-22 17:42:26
 updated: 2023-10-31 19:00:00
 categories: 实用工具
+tags: [OCR, PDF]
+index_img: https://leadgenandlistbuildingtips.com/wp-content/uploads/2017/07/The-Ultimate-eBook-Template-Free-Download.jpg
+banner_img: https://the-digital-reader.com/wp-content/uploads/2017/04/canstockphoto18508129.jpg
 ---
 
 纸质版的课本通常不便宜，尤其是国外出版的教材，而且它们携带起来非常重且不方便。如果有一台 iPad 或者类似的平板电脑，那么使用电子课本将会变得非常方便。

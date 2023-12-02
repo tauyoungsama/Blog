@@ -4,6 +4,8 @@ date: 2023-03-20 11:50:00
 updated: 2023-04-08 01:33:40
 categories: 实用工具
 tags: Shell
+index_img: https://www.grandream.jp/image/blog/zsh.png
+banner_img: https://images.pexels.com/photos/1013480/pexels-photo-1013480.jpeg
 ---
 
 本文收录了一些我用过的觉得今后还能用上 Shell 命令，作为存档，不定期更新。

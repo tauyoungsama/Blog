@@ -4,6 +4,8 @@ date: 2022-10-29 02:23:30
 updated: 2023-06-17 19:26:40
 categories: 实用工具
 tags: Shell
+index_img: https://img95.699pic.com/video_cover/62/38/92/a_7kNx8zmQTFvh1571623892.jpg
+banner_img: https://www.danielshustle.com/wp-content/uploads/prog-1.jpg
 ---
 
 笔者在写《数据结构》课程的编程作业时，遇到了一件令人恼火的事。

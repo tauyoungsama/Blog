@@ -4,6 +4,8 @@ date: 2023-10-21 02:00:00
 updated: 2023-10-21 02:00:00
 categories: 实用工具
 tags: Shell
+index_img: https://freepngimg.com/thumb/graphic_design/73392-shell-command-line-script-unix-linux-interface.png
+banner_img: https://i.kinja-img.com/gawker-media/image/upload/s--sPlZaVZB--/c_fill,fl_progressive,g_center,h_900,q_80,w_1600/18ixt8oys3vbcpng.png
 ---
 
 一般来说，向程序传递数据可以采用参数传递的方式，在调用的同时将数据一并传递；或者使用标准输入，在程序启动后通过控制台键入等方式输入数据。下面我们通过一个简单的例子说明二者的区别。我们实现一个简单的 `echo` 命令，分别采用参数传递和标准输入两种传递数据的方式，接受一个字符串并打印。

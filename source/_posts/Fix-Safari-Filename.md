@@ -3,7 +3,9 @@ title: 修复 Safari 下载文件名乱码
 date: 2023-06-08 02:00:00
 updated: 2023-06-16 12:15:00
 categories: 实用工具
-tags: Automator
+tags: [macOS, Automator]
+index_img: https://www.shamwari.com/wp-content/uploads/2019/09/02_Shamwari_Safari_Lion-1024x576.jpg
+banner_img: https://wallpaperaccess.com/full/1286215.jpg
 ---
 
 Safari 浏览器从特定网站上下载文件时，会出现文件名乱码的问题。本文提供了一键修复的教程。

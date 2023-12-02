@@ -4,6 +4,8 @@ date: 2022-09-22 20:41:30
 updated: 2023-10-25 15:50:00
 categories: 实用工具
 tags: LaTeX
+index_img: https://ctan.org/assets/skin/gray/images/ctan-lion-d371c25e7eefcd9e0ada8e810fc88127.svg
+banner_img: https://www.latex-project.org/img/latex-project-logo.svg
 ---
 
 TexLive 在 macOS 上的发行版是 MacTeX，若使用官方提供的安装包进行安装，还会一并附赠若干我们碰都不会碰的 GUI（图形用户界面）软件用来编辑 $\TeX$ 源文件和管理各类包。本文提供仅安装 MacTeX 核心组件且配置 VSCode 作为 $\LaTeX$ 文件编辑器的详细方案。

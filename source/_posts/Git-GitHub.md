@@ -3,7 +3,9 @@ title: Git 与 GitHub 使用指北
 date: 2022-11-01 14:40:10
 updated: 2023-08-04 14:28:00
 categories: 实用工具
-tags: [Shell, Git]
+tags: [Shell, Git, SSH]
+index_img: https://adrin.info/files/img/20190216-git-github.png
+banner_img: https://thedigitalhacker.com/wp-content/uploads/2019/07/github-logo.jpeg
 ---
 
 ## 源代码管理

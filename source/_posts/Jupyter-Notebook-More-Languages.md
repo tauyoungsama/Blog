@@ -3,7 +3,9 @@ title: 在 Jupyter Notebook 中使用更多语言
 date: 2023-05-11 10:55:40
 updated: 2023-05-15 13:32:50
 categories: 实用工具
-tags: [Python, Jupyter, R, MATLAB]
+tags: [Jupyter, R, MATLAB]
+index_img: /img/Jupyter.png
+banner_img: https://bgr.com/wp-content/uploads/2021/02/BGRpic-Recovered-Recovered-Recovered-2.jpg
 ---
 
 使用过 Jupyter Notebook 的开发者想必都十分熟悉这种基于 Web 的交互式计算环境，并且喜爱这种可以同时包含代码、文本、公式、图表和富媒体的文件格式吧！Jupyter Notebook 中最流行的程序语言是 Python，但是这不代表其他语言不能在 Jupyter Notebook 中运行，毕竟，这么好的格式怎么能让 Python 独占呢！事实上，只要能安装运行相应的**核**（Kernel），那么对应语言的代码就能在 Jupyter Notebook 中运行。你可以在[这里](https://github.com/jupyter/jupyter/wiki/Jupyter-kernels)找到第三方核和它们支持的语言的完整列表，或者在文末查看。

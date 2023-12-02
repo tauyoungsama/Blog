@@ -3,7 +3,9 @@ title: 不求人，自制 DDNS 脚本！
 date: 2023-11-20 15:00:00
 updated: 2023-11-20 15:00:00
 categories: 实用工具
-tags: Shell
+tags: [Shell, DNS]
+index_img: https://www.redeszone.net/app/uploads-redeszone.net/2018/11/Redes-DDNS.jpg
+banner_img: https://static1.makeuseofimages.com/wp-content/uploads/2015/04/free-dynamic-dns-intro.jpg
 ---
 
 使用 Namesilo API 更新本机 IPv6 解析记录。

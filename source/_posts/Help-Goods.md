@@ -4,6 +4,8 @@ date: 2022-09-22 11:23:20
 updated: 2023-10-31 19:00:00
 categories: 软件工程
 tags: Python
+index_img: https://www.simulyze.com/hubfs/Blog/Drone-package-delivery.jpg
+banner_img: https://images.pexels.com/photos/4246120/pexels-photo-4246120.jpeg
 ---
 
 [![GitHub Repo](https://img.shields.io/badge/GitHub-Help--Goods-blue)](https://github.com/tau-young/Help-Goods)

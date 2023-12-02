@@ -4,6 +4,8 @@ date: 2022-12-23 23:45:00
 updated: 2023-10-31 19:00:00
 categories: 软件工程
 tags: [Python, HTML]
+index_img: https://tvlc.org/wp-content/uploads/2017/06/canned-goods.jpg
+banner_img: https://g.foolcdn.com/editorial/images/230524/consumer-goods.jpg
 ---
 
 本项目是上海交通大学 CS-3331 软件工程课程大作业，同时也是 [Help-Goods](https://github.com/tau-young/Help-Goods) 项目的 GUI 版本，但是经过了完全的重构。

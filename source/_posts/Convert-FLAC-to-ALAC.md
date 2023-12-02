@@ -4,6 +4,8 @@ date: 2023-02-27 23:31:20
 updated: 2023-6-17 19:52:30
 categories: 实用工具
 tags: Shell
+index_img: https://ahmadawais.com/wp-content/uploads/2021/05/FFmpeg.jpg
+banner_img: https://www.apple.com.cn/newsroom/images/2023/11/taylor-swift-is-apple-musics-artist-of-the-year-for-2023/article/Apple-Music-Awards-Artist-of-the-Year-Taylor-Swift_big.jpg.large_2x.jpg
 ---
 
 FLAC（**F**ree **L**ossless **A**udio **C**odec）是无损压缩音频文件中最常见的格式之一，许多数字专辑购买后获得的音频也是这个格式。尽管 macOS 原生支持 FLAC 格式音频的播放（QuickLook），但是无法将其导入到 Apple Music 中。要将无损的音源导入到 Apple Music 中，除了无压缩的 AIFF 格式外，还有一种方法就是转换为 Apple Music 支持的 ALAC（**A**pple **L**ossless **A**udio **C**odec）格式。

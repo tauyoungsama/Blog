@@ -4,6 +4,8 @@ date: 2023-11-24 00:35:00
 updated: 2023-11-24 00:35:00
 categories: 实用工具
 tags: Node.js
+index_img: https://pic1.zhimg.com/v2-41e1b825c51055f39c22b95777bc620b_1440w.jpg
+banner_img: https://www.hammertime.tech/images/posts/hexo_og.jpg
 ---
 
 博客是一种在线日记型式的个人网站。在博客上发表的文章，可以是对特定的课题或新闻的评论，也可以专注于个人日记。简而言之，博客是一个人在网上独立发表文章的平台。
