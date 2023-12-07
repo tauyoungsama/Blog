@@ -1032,6 +1032,12 @@ links:
       link: https://andreoy.cn/,
       avatar: https://pigco-1313228125.cos.ap-shanghai.myqcloud.com/img/6F5d1EWoQrmCjLA.png
     }
+    - {
+      title: 春山如黛,
+      intro: 来玩毛线团🧶...,
+      link: https://orangecatcat.github.io/,
+      avatar: http://pic1.win4000.com/wallpaper/2019-06-19/5d09f874606c9.jpg
+    }
 
   # 当成员头像加载失败时，替换为指定图片
   # When the member avatar fails to load, replace the specified image
