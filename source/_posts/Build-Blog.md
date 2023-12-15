@@ -18,34 +18,14 @@ banner_img: https://www.hammertime.tech/images/posts/hexo_og.jpg
 
 从头开始手撸一个网站是真正的技术大佬才做得到的，对于我们普通人，主流的做法是采用成熟的博客框架，按照自己的需求进行配置。常见的博客框架有 [WordPress](https://wordpress.com/zh-cn/)、[Hexo](https://hexo.io/zh-cn/)、[Hugo](https://gohugo.io/)、[JekyII](https://jekyllrb.com/) 等。本站采用 [Hexo](https://hexo.io/zh-cn/) 作为框架进行构建，决定采用其他框架的读者可自行阅读相关文档或者搜索其他教程。
 
-### Node.js
-
-[Node.js](https://nodejs.org/) 是能够在服务器端运行 JavaScript 的开源、跨平台执行环境。Hexo 依赖于 Node.js 运行，因此我们需要先安装 Node.js。
-
-在 Mac 上，使用 [Homebrew](https://brew.sh/zh-cn/) 安装：
-
-```sh
-brew install node
-```
-
-如果你不了解 Homebrew，可以参考{% post_link Homebrew %}。
-
-或者直接访问其网站下载：https://nodejs.org/en/download/current
-
-或者根据操作系统使用相应的包管理器安装：https://nodejs.org/en/download/package-manager
-
-如有需要，可以给`npm`替换镜像源：
-
-```sh
-echo 'registry=https://mirrors.sjtug.sjtu.edu.cn/npm-registry' > ~/.npmrc
-```
-
 ### Hexo
+
+[Node.js](https://nodejs.org/) 是能够在服务器端运行 JavaScript 的开源、跨平台执行环境，Hexo 依赖于 Node.js 运行。我们用 Homebrew 安装 Hexo 时会自动安装它的依赖 Node.js。
 
 使用以下命令安装 Hexo：
 
 ```sh
-npm install hexo-cli -g
+brew install hexo
 ```
 
 创建新的项目：
