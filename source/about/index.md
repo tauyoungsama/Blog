@@ -6,7 +6,7 @@ comment: true
 
 欢迎访问韬秧道！
 
-作者目前就读于上海交通大学本科，主修数学与应用数学，辅修计算机科学与技术。平时喜欢钻研一些有意思但没多大用的玩意……
+站长即本站大部分文章的作者目前就读于上海交通大学本科，主修数学与应用数学，辅修计算机科学与技术。平时喜欢钻研一些有意思但没多大用的玩意……
 
 ### 喜爱的音乐
 
@@ -25,13 +25,18 @@ comment: true
 - [macOS Sonoma](https://www.apple.com/macos/sonoma/) 14.2 {% label success @Latest %}
 - [Zsh](https://zsh.sourceforge.io/) 5.9 {% label primary @Built-in %}{% label success @Latest %}
 - [Apple Clang](https://opensource.apple.com/projects/llvm-clang/) 15.0.0 {% label primary @Built-in %}
-- [Python](https://www.python.org/) 3.12.0 {% label success @Latest %}
+- [Python](https://www.python.org/) 3.12.1 {% label success @Latest %}
 - [MacTeX](https://tug.org/mactex/) 2023.0314 {% label success @Latest %}
+
+所有仍在更新的项目在以上平台与环境下可正常运行。
+大部分项目在不额外适配的情况下可在 Linux 或旧版环境下运行。
+所有项目均不会兼容 Windows 与 Bash。
 
 ### 开源项目
 
 - 本站：https://github.com/tauyoungsama/Blog
 - 终端提示符：https://github.com/tauyoungsama/zsh-prompt
+- 必应图片归档：https://github.com/tauyoungsama/imageArchive
 - 物品交换软件（软件工程大作业）
 	- [命令行界面](/article/Help-Goods)：https://github.com/tauyoungsama/Help-Goods
 	- [图形化界面](/article/Help-Goods-Web)：https://github.com/tauyoungsama/HelpGoodsWeb
