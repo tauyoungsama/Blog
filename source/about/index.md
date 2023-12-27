@@ -22,7 +22,7 @@ comment: true
 
 ### 开发环境
 
-- [macOS Sonoma](https://www.apple.com/macos/sonoma/) 14.2 {% label success @Latest %}
+- [macOS Sonoma](https://www.apple.com/macos/sonoma/) 14.2.1 {% label success @Latest %}
 - [Zsh](https://zsh.sourceforge.io/) 5.9 {% label primary @Built-in %}{% label success @Latest %}
 - [Apple Clang](https://opensource.apple.com/projects/llvm-clang/) 15.0.0 {% label primary @Built-in %}
 - [Python](https://www.python.org/) 3.12.1 {% label success @Latest %}
