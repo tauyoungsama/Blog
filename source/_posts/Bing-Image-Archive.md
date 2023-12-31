@@ -1,7 +1,7 @@
 ---
 title: 必应每日一图？我收下了！
 date: 2023-12-11 13:30:00
-updated: 2023-12-11 13:30:00
+updated: 2023-12-31 13:55:00
 categories: 实用工具
 tags: [Shell, Git]
 index_img: https://cdn.wallpaperhub.app/cloudcache/3/c/a/e/9/4/3cae9423e2f818afb6e64a220ea2c39fd0cee877.jpg
@@ -19,71 +19,53 @@ banner_img:
 必应的每日一图的元数据可以通过 https://www.bing.com/HPImageArchive.aspx 获取，但是直接访问此地址将不会有任何返回，需要追加查询参数。
 
 - `format`：返回数据的格式。可选：js，xml（默认），rss。
-- `idx`（必需）：图片相对今天的 ID。可选：0..7。7 以上的数字按照 7 处理。
-- `n`（必需）：获取的图片数量。可选：1..8。8 以上的数字按照 8 处理。
-- `mkt`：每日一图的地区。不同地区的图片可能相同或不同。中国大陆的 IP 只能获取中国大陆的返回结果，此参数无效。
+- `idx`（必需）：图片相对今天的偏移量。可选：0-7。7 以上的数字按照 7 处理。
+- `n`（必需）：获取的图片数量。可选：1-8。8 以上的数字按照 8 处理。
+- `mkt`：每日一图的地区，大小写不敏感。不同地区的图片可能相同或不同。
 
-经过笔者的多次实验，`mkt` 取以下值时可能会获取到新图片：`zh-cn` `en-us` `en-gb` `en-ca` `en-in` `ja-jp` `fr-fr` `de-de` `es-es` `pt-br` `it-it`。为了能够确实地获取到供给其他地区的图片，以下操作需要全部在代理下进行。
+{% note danger %}
+中国大陆的 IP 只能获取中国大陆的返回结果，`mkt`参数无效。如果需要获取其他地区的结果，需要使用魔法。
+{% endnote %}
 
-接下来，让我们在 12 月 10 日试试往这个地址发一条 GET 请求试试吧！
+经过笔者的多次实验，`mkt` 取以下值时能基本覆盖所有新图片：`ZH-CN` `EN-US` `EN-GB` `EN-CA` `EN-IN` `JA-JP` `FR-FR` `DE-DE` `ES-ES` `PT-BR` `IT-IT`。为了能够确实地获取到供给其他地区的图片，以下操作全部需要需要通过魔法进行。
+
+接下来，我们往这个地址发一条 GET 请求试试吧！
 
 https://www.bing.com/HPImageArchive.aspx?idx=0&n=1&mkt=zh-cn
 
 ```xml
 <images>
 	<image>
-		<startdate>20231209</startdate>
-		<fullstartdate>202312090800</fullstartdate>
-		<enddate>20231210</enddate>
-		<url>
-			/th?id=OHR.LlanberisSnowdoniaSunset_ZH-CN6682238671_1920x1080.jpg&rf=LaDigue_1920x1080.jpg&pid=hp
-		</url>
-		<urlBase>
-			/th?id=OHR.LlanberisSnowdoniaSunset_ZH-CN6682238671
-		</urlBase>
-		<copyright>
-			林帕达恩湖，斯诺登尼亚国家公园， 威尔士 (© Joe Daniel Price/Getty Images)
-		</copyright>
-		<copyrightlink>
-			https://www.bing.com/search?q=%E6%96%AF%E8%AF%BA%E7%99%BB%E5%B0%BC%E4%BA%9A%E5%9B%BD%E5%AE%B6%E5%85%AC%E5%9B%AD&form=hpcapt&mkt=zh-cn
-		</copyrightlink>
-		<headline>一个让人沉思的地方</headline>
+		<startdate>20231230</startdate>
+		<fullstartdate>202312300800</fullstartdate>
+		<enddate>20231231</enddate>
+		<url>/th?id=OHR.ThailandNewYears_ZH-CN2058192262_1920x1080.jpg&rf=LaDigue_1920x1080.jpg&pid=hp</url>
+		<urlBase>/th?id=OHR.ThailandNewYears_ZH-CN2058192262</urlBase>
+		<copyright>帕那空奇里上空的烟花，碧武里府,泰国 (© noomcpk/Shutterstock)</copyright>
+		<copyrightlink>https://www.bing.com/search?q=%E8%B7%A8%E5%B9%B4%E5%A4%9C&form=hpcapt&mkt=zh-cn</copyrightlink>
+		<headline>明年见!</headline>
 		<drk>1</drk>
 		<top>1</top>
 		<bot>1</bot>
 		<hotspots />
 	</image>
 	<tooltips>
-		<loadMessage>
-			<message>正在加载...</message>
-		</loadMessage>
-		<previousImage>
-			<text>上一个图像</text>
-		</previousImage>
-		<nextImage>
-			<text>下一个图像</text>
-		</nextImage>
-		<play>
-			<text>播放视频</text>
-		</play>
-		<pause>
-			<text>暂停视频</text>
-		</pause>
+		<!-- 这部分省略 -->
 	</tooltips>
 </images>
 ```
 
 分析返回的结果不难发现，
 
-- `/images/image/startdate` 是图片发布的日期（通常滞后一天）；
-- `/images/image/url` 是图片的真实地址，当然后两个查询参数是可以丢弃的；
-- `/images/image/url` 内还藏了图片的标题，例如这里是 LlanberisSnowdoniaSunset；
+- `/images/image/enddate` 是图片发布的日期（`startdate`通常滞后一天）；
+- `/images/image/url` 是图片的真实地址，当然后两个查询参数不影响返回的结果；
+- `/images/image/url` 内还藏了图片的标题，例如这里是 ThailandNewYears；
 - `/images/image/copyright` 是图片的拍摄位置与版权信息；
 - `/images/image/headline` 是图片的描述。
 
-嗯，很好，之后我们再往 https://www.bing.com/th?id=OHR.LlanberisSnowdoniaSunset_ZH-CN6682238671_1920x1080.jpg 发一个 GET 请求就能获取我们想要的图片了！
+嗯，很好，之后我们再往 https://www.bing.com/th?id=OHR.ThailandNewYears_ZH-CN2058192262_1920x1080.jpg 发一个 GET 请求就能获取我们想要的图片了！
 
-![她真好看。](https://www.bing.com/th?id=OHR.LlanberisSnowdoniaSunset_ZH-CN6682238671_1920x1080.jpg)
+![新年快乐！](https://www.bing.com/th?id=OHR.ThailandNewYears_ZH-CN2058192262_1920x1080.jpg)
 
 ## 利用脚本处理元数据
 
@@ -91,7 +73,7 @@ https://www.bing.com/HPImageArchive.aspx?idx=0&n=1&mkt=zh-cn
 
 ### 循环…
 
-贪心点没关系的，我们不止想要本地区的图片，我们想要必应供给全球的图片！所以，我们需要循环，让抓图的操作对所有的地区都来一发！
+贪心点没关系的，我们不止想要本地区的图片，我们想要必应供给全球的图片！所以，我们需要循环，让抓图的操作对所有的地区都来一遍！
 
 ```sh
 for mkt in {zh-cn,en-us,en-gb,en-ca,en-in,ja-jp,fr-fr,de-de,es-es,pt-br,it-it}
@@ -116,17 +98,17 @@ curl -sG -d idx=0 -d n=1 -d mkt=$mkt https://www.bing.com/HPImageArchive.aspx
 
 ```sh
 image=$(curl -sG -d idx=0 -d n=1 -d mkt=$mkt https://www.bing.com/HPImageArchive.aspx | xmllint --xpath '/images/image' -)
-startdate=$(echo $image | xmllint --xpath '/image/startdate/text()' -)
-url=$(echo $image | xmllint --xpath '/image/url/text()' -)
+enddate=$(echo $image | xmllint --xpath '/image/enddate/text()' -)
+urlBase=$(echo $image | xmllint --xpath '/image/urlBase/text()' -)
 headline=$(echo $image | xmllint --xpath '/image/headline/text()' -)
 copyright=$(echo $image | xmllint --xpath '/image/copyright/text()' -)
 ```
 
 ### 保存文件
 
-用什么当做文件名好呢？如果只有一个地区的话，`startdate`或许是个不错的选择，但是我们胃口很大，同一天有不同的图片，同一张图片也可能会出现在不同地区的不同日期，这样的话就非常不适合了。不过，必应很贴心地已经帮我们取好了标题，就藏在图片的 URL 里！
+用什么当做文件名好呢？如果只有一个地区的话，`enddate`或许是个不错的选择，但是我们胃口很大，同一天有不同的图片，同一张图片也可能会出现在不同地区的不同日期，这样的话就非常不适合了。不过，必应很贴心地已经帮我们取好了标题，就藏在图片的 URL 里！
 
-在`id`参数`id=OHR.LlanberisSnowdoniaSunset_ZH-CN6682238671_1920x1080.jpg`中，要把`LlanberisSnowdoniaSunset`提取出来，可以用 Zsh 内置的字符串截断语法。
+在`urlBase`变量`/th?id=OHR.ThailandNewYears_ZH-CN2058192262`中，要把`ThailandNewYears`提取出来，可以用 Zsh 内置的字符串截断语法。
 
 |语法|方向|程度|
 |-|-|-|
@@ -138,16 +120,24 @@ copyright=$(echo $image | xmllint --xpath '/image/copyright/text()' -)
 这里，我们需要删除 URL`.`左侧的字符，最小匹配，以及`_`右侧的字符，最大匹配。因此我们的文件名应该是
 
 ```sh
-filename=${${url#*.}%%_*}
+filename=${${urlBase#*.}%%_*}
 ```
 
-除了图片本身，必应贴心地给出的描述也很珍贵，所以我们决定把图片的描述统统保存下来！当然——要分离。我们新建两个名为`desc`和`img`的目录，前者用于保存描述文字，后者用于保存图片本身。
+{% note info %}
+同日`IT-IT`地区的`urlBase`是`/th?id=OHR.SantaMariaVenice_1185725818_IT-IT0984119913`，为了处理这类特殊情况，对下划线`_`需要最大匹配。
+{% endnote%}
+
+除了图片本身，必应贴心地给出的各类元数据也很珍贵，所以我们决定把它们统统保存下来！为了维护目录的干净整洁，我们将图片本身保存在`img`子目录下，将元数据保存至`metadata.csv`文件内。在首次运行前，需要事先制作表头。
 
 ```sh
-echo $image | xmllint --xpath '/image/headline/text()' - > desc/$filename.txt
-echo $image | xmllint --xpath '/image/copyright/text()' - >> desc/$filename.txt
+echo -n "$enddate,$filename,$mkt," >> metadata.csv
+echo -n "$(echo ${urlBase##*_} | grep -oE '[0-9]+')," >> metadata.csv
+echo -n "\"$headline\"," >> metadata.csv
+echo "\"$copyright\"" >> metadata.csv
 curl -so img/$filename.jpg www.bing.com${url%%&*}
 ```
+
+![](/img/BingImageMetadata.png)
 
 ### 异常处理
 
@@ -177,34 +167,33 @@ curl -so img/$filename.jpg www.bing.com${url%%&*}
 ln -f img/$filename.jpg img/latest.jpg
 ```
 
-如果我们查看`latest.jpg`的文件信息，我们会发现，`Links: 2`表明这份文件的实际内容有两个链接，那么就是`LlanberisSnowdoniaSunset.jpg`和`latest.jpg`这两个啦！它们的 Inode 也完全相同。
+如果我们查看`latest.jpg`的文件信息，我们会发现，`Links: 2`表明这份文件的实际内容有两个链接，它们的各类元数据也完全相同。
 
 ```sh
-╭[tauyoung](~/imageArchive)[main]
-╰ % stat -x img/latest.jpg 
+% stat -x img/latest.jpg 
   File: "img/latest.jpg"
-  Size: 334090       FileType: Regular File
+  Size: 277156       FileType: Regular File
   Mode: (0644/-rw-r--r--)         Uid: (  501/tauyoung)  Gid: (   20/   staff)
-Device: 1,17   Inode: 7760216    Links: 2
-Access: Sun Dec 10 08:00:08 2023
-Modify: Sun Dec 10 08:00:08 2023
-Change: Sun Dec 10 08:00:08 2023
- Birth: Sun Dec 10 08:00:07 2023
-╭[tauyoung](~/imageArchive)[main]
-╰ % stat -x img/LlanberisSnowdoniaSunset.jpg 
-  File: "img/LlanberisSnowdoniaSunset.jpg"
-  Size: 334090       FileType: Regular File
+Device: 1,14   Inode: 3377751    Links: 2
+Access: Sun Dec 31 08:00:07 2023
+Modify: Sun Dec 31 08:00:07 2023
+Change: Sun Dec 31 08:00:07 2023
+ Birth: Sun Dec 31 08:00:07 2023
+
+% stat -x img/ThailandNewYears.jpg
+  File: "img/ThailandNewYears.jpg"
+  Size: 277156       FileType: Regular File
   Mode: (0644/-rw-r--r--)         Uid: (  501/tauyoung)  Gid: (   20/   staff)
-Device: 1,17   Inode: 7760216    Links: 2
-Access: Sun Dec 10 08:00:08 2023
-Modify: Sun Dec 10 08:00:08 2023
-Change: Sun Dec 10 08:00:08 2023
- Birth: Sun Dec 10 08:00:07 2023
+Device: 1,14   Inode: 3377751    Links: 2
+Access: Sun Dec 31 08:00:07 2023
+Modify: Sun Dec 31 08:00:07 2023
+Change: Sun Dec 31 08:00:07 2023
+ Birth: Sun Dec 31 08:00:07 2023
 ```
 
 ## 发布到 GitHub
 
-没错！GitHub 用作图床虽然不是正经用法，但也确实是最简单的途径了。要让 GitHub 接受这些图片，首先要让 Git 来管理它们。不过，Git 主要是用来管理源代码等文本文件的，图片这类二进制文件的确不是它的长处。所以有了 Git LFS，大文件存储。Git LFS 用一个独特的方式管理体积较大的文件，这些文件原本的位置会被替换成一个指针，指向文件实际存储的位置。推送到 GitHub 上后，也会被存到专门存放大文件的地方。免费用户拥有 1GB 的大文件存储空间，对于我们这些图片来说已经是绰绰有余。
+GitHub 用作图床虽然不是正经用法，但也确实是最简单的途径了。要让 GitHub 接受这些图片，首先要让 Git 来管理它们。不过，Git 主要是用来管理源代码等文本文件的，图片这类二进制文件的确不是它的长处。所以有了 Git LFS，大文件存储。Git LFS 用一个独特的方式管理体积较大的文件，这些文件原本的位置会被替换成一个指针，指向文件实际存储的位置。推送到 GitHub 上后，也会被存到专门存放大文件的地方。免费用户拥有 1GB 的大文件存储空间，对于我们这些图片来说已经是绰绰有余。
 
 通过以下命令安装和启用 Git LFS（不了解或未安装 Homebrew 的请参考{% post_link Homebrew %}）：
 
@@ -246,22 +235,21 @@ git push
 ```sh
 #!/bin/zsh
 idx=${1:-0}
-for mkt in {zh-cn,en-us,en-gb,en-ca,en-in,ja-jp,fr-fr,de-de,es-es,pt-br,it-it}
+for mkt in {ZH-CN,EN-US,EN-GB,EN-CA,EN-IN,JA-JP,FR-FR,DE-DE,ES-ES,PT-BR,IT-IT}
 do
 	image=$(curl -sG -d idx=$idx -d n=1 -d mkt=$mkt https://www.bing.com/HPImageArchive.aspx | xmllint --xpath '/images/image' -)
 	[[ -z $image ]] && continue
-	startdate=$(echo $image | xmllint --xpath '/image/startdate/text()' -)
-	url=$(echo $image | xmllint --xpath '/image/url/text()' -)
-	filename=${${url#*.}%%_*}
+	enddate=$(echo $image | xmllint --xpath '/image/enddate/text()' -)
+	urlBase=$(echo $image | xmllint --xpath '/image/urlBase/text()' -)
+	filename=${${urlBase#*.}%%_*}
 	[[ -e img/$filename.jpg ]] && continue
-	echo $image | xmllint --xpath '/image/headline/text()' - > desc/$filename.txt
-	echo $image | xmllint --xpath '/image/copyright/text()' - >> desc/$filename.txt
-	curl -so img/$filename.jpg www.bing.com${url%%&*}
-	[[ $mkt == zh-cn ]] && ln -f img/$filename.jpg img/latest.jpg
+	echo "$enddate,$filename,$mkt,$(echo ${urlBase##*_} | grep -oE '[0-9]+'),\"$(echo $image | xmllint --xpath '/image/headline/text()' -)\",\"$(echo $image | xmllint --xpath '/image/copyright/text()' -)\"" >> metadata.csv
+	curl -so img/$filename.jpg www.bing.com${urlBase}_1920x1080.jpg
+	[[ $mkt == ZH-CN ]] && ln -f img/$filename.jpg img/latest.jpg
 done
 [[ $(git status --porcelain) ]] || exit
 git add desc img
-git commit -m "Fetch: $startdate"
+git commit -m "Fetch: $enddate"
 git push
 ```
 
@@ -312,7 +300,7 @@ git push
 - `Program`：要运行的脚本或者程序。需要使用绝对路径。如果需要传入参数，请改用`ProgramArguments`。
 - `EnvironmentVariables`：环境变量。这里配置了网络代理，以及包含 Git LFS 的搜索路径。
 - `WorkingDirectory`：工作目录，脚本中所有的相对路径都将从工作目录出发。
-- `StartCalendarInterval`：启动时间。这里设置为每天 8:00 (UTC 0:00) 运行。
+- `StartCalendarInterval`：启动时间。这里设置为**本地时间**每天 8:00 运行。
 - `StandardOutPath`：标准输出路径，任务的输出会被重定向至该文件。
 - `StandardErrorPath`：错误输出路径，任务的报错会被重定向至该文件。
 
